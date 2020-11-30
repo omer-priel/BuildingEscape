@@ -1,5 +1,7 @@
 #include "WorldPositionComponent.h"
 
+#include <GameFramework/Actor.h>
+
 // Sets default values for this component's properties
 UWorldPositionComponent::UWorldPositionComponent()
 {
@@ -16,8 +18,9 @@ void UWorldPositionComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	
+	FString name = GetOwner()->GetName();
+
+	UE_LOG(LogTemp, Warning, TEXT("The owner is %s"), *name);
 }
 
 
@@ -28,4 +31,3 @@ void UWorldPositionComponent::TickComponent(float DeltaTime, ELevelTick TickType
 
 	// ...
 }
-
