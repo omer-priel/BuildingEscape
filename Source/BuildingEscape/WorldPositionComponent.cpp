@@ -19,8 +19,9 @@ void UWorldPositionComponent::BeginPlay()
 	Super::BeginPlay();
 
 	FString name = GetOwner()->GetName();
+	FString loc = GetOwner()->GetActorLocation().ToString();
 
-	UE_LOG(LogTemp, Warning, TEXT("The owner is %s"), *name);
+	UE_LOG(LogTemp, Warning, TEXT("The owner is %s and it in %s"), *name, *loc);
 }
 
 
