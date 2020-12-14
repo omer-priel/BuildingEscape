@@ -8,11 +8,13 @@ UOpenDoorComponent::UOpenDoorComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
-
 // Called when the game starts
 void UOpenDoorComponent::BeginPlay()
 {
 	Super::BeginPlay();
+
+	InitialYam = GetOwner()->GetActorRotation().Yaw;
+	TargetYam = InitialYam + 90.0f;
 }
 
 
@@ -28,4 +30,3 @@ void UOpenDoorComponent::TickComponent(float deltaTime, ELevelTick tickType, FAc
 
 	GetOwner()->SetActorRotation(rotation);
 }
-
