@@ -14,7 +14,7 @@ void UOpenDoorComponent::BeginPlay()
 	Super::BeginPlay();
 
 	InitialYam = GetOwner()->GetActorRotation().Yaw;
-	TargetYam = InitialYam + 90.0f;
+	TargetYam += InitialYam;
 }
 
 
@@ -26,7 +26,7 @@ void UOpenDoorComponent::TickComponent(float deltaTime, ELevelTick tickType, FAc
 	FRotator rotation = GetOwner()->GetActorRotation();
 
 	// open rotation
-	rotation.Yaw = FMath::FInterpTo(rotation.Yaw, TargetYam, deltaTime, 2);
+	rotation.Yaw = FMath::Lerp(rotation.Yaw, TargetYam, deltaTime * 0.6f);
 
 	GetOwner()->SetActorRotation(rotation);
 }

@@ -20,5 +20,7 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	float InitialYam;
-	float TargetYam;
+
+	UPROPERTY(EditAnywhere, Category="Door Open")
+	float TargetYam = 90.0f;
 };
